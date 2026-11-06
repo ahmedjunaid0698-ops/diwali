@@ -1,0 +1,325 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#170609">
+    <title>You Light Up My Diwali ❤️</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div id="stars" class="stars"></div>
+    <div id="petals" class="petals"></div>
+
+    <!-- MUSIC: ONE PERSISTENT AUDIO ELEMENT -->
+    <audio id="bgMusic" loop preload="auto">
+        <source src="kesariya.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="music-player">
+        <button id="musicToggle" aria-label="Play or pause music">▶</button>
+        <div class="music-info">
+            <small>NOW PLAYING</small>
+            <strong>Kesariya ❤️</strong>
+        </div>
+        <input type="range" id="volume" min="0" max="1" step="0.05" value="0.7" aria-label="Volume">
+    </div>
+
+    <!-- 1. WELCOME -->
+    <section class="screen active" id="welcome">
+        <div class="hanging-lights">🪔 ✨ 🪔 ✨ 🪔</div>
+
+        <div class="section-content">
+            <p class="eyebrow">A FESTIVAL OF LIGHTS & LOVE</p>
+            <div class="big-diya">🪔</div>
+
+            <h1>You Light Up<br><span>My Diwali</span></h1>
+
+            <p class="subtitle">
+                Some lights brighten a home.<br>
+                Some people brighten a heart.
+            </p>
+
+            <div class="name-inputs">
+                <input id="yourName" maxlength="25" placeholder="Your name (optional)">
+                <input id="partnerName" maxlength="25" placeholder="Their name (optional)">
+            </div>
+
+            <button class="gold-btn" id="enterBtn">
+                Enter My Diwali World ✨
+            </button>
+
+            <p class="bottom-note">A little surprise made with love ❤️</p>
+        </div>
+
+        <div class="corner-diya left">🪔</div>
+        <div class="corner-diya right">🪔</div>
+    </section>
+
+    <!-- 2. DIYA LIGHTING -->
+    <section class="screen" id="lighting">
+        <div class="section-content">
+            <p class="eyebrow">LET THE FESTIVAL BEGIN</p>
+            <h2>Light Up The <span>Diwali</span></h2>
+            <p class="description">Drag your candle flame onto every diya.</p>
+
+            <div class="progress-area">
+                <span id="progressText">0 / 10 Diyas Lit</span>
+                <div class="progress-bar">
+                    <div id="progressFill"></div>
+                </div>
+            </div>
+
+            <div class="diya-area" id="diyaArea">
+                <div class="rangoli-bg">✺</div>
+
+                <div class="diya">🪔</div>
+                <div class="diya">🪔</div>
+                <div class="diya">🪔</div>
+                <div class="diya">🪔</div>
+                <div class="diya">🪔</div>
+                <div class="diya">🪔</div>
+                <div class="diya">🪔</div>
+                <div class="diya">🪔</div>
+                <div class="diya">🪔</div>
+                <div class="diya">🪔</div>
+
+                <div class="candle" id="candle">
+                    <div class="candle-flame"></div>
+                    <div class="candle-body"></div>
+                    <span>DRAG ME</span>
+                </div>
+            </div>
+
+            <p id="lightInstruction" class="instruction">
+                🕯️ Light all 10 diyas!
+            </p>
+
+            <button class="gold-btn hidden" id="continueBtn">
+                Continue ❤️
+            </button>
+        </div>
+    </section>
+
+    <!-- 3. QUESTION INTRO -->
+    <section class="screen" id="flirtIntro">
+        <div class="section-content">
+            <div class="floating-heart">❤️</div>
+            <p class="eyebrow">A LITTLE GAME OF LOVE</p>
+            <h2>Now Let's Talk<br><span>About Us</span></h2>
+            <p class="description">
+                I have four little questions for you. Be honest! 😉
+            </p>
+            <button class="gold-btn" id="startQuestions">Let's Play 😍</button>
+        </div>
+    </section>
+
+    <!-- 4. FOUR QUESTIONS -->
+    <section class="screen" id="questions">
+        <div class="section-content">
+            <p class="eyebrow">A LITTLE QUESTION FOR YOU</p>
+
+            <div class="question-card">
+                <div id="questionNumber" class="question-number">QUESTION 01</div>
+                <div id="questionEmoji" class="question-emoji">🥺</div>
+                <h2 id="questionText">Do you think someone is crushing on you?</h2>
+
+                <div class="answer-buttons">
+                    <button class="yes-btn" id="yesBtn">YES ❤️</button>
+                    <button class="no-btn" id="noBtn">NO 🙈</button>
+                </div>
+
+                <p id="response" class="response"></p>
+            </div>
+
+            <div id="questionProgress" class="question-progress">1 of 4</div>
+        </div>
+    </section>
+
+    <!-- 5. WISH LANTERN -->
+    <section class="screen" id="wishPage">
+        <div class="section-content">
+            <p class="eyebrow">MAKE A WISH</p>
+            <h2>Send Your Wish <span>To The Sky</span> ✨</h2>
+
+            <p class="description">
+                Write a little wish and release your glowing lantern.
+            </p>
+
+            <textarea id="wishInput" maxlength="180"
+                placeholder="Write your beautiful wish here..."></textarea>
+
+            <div class="lantern-scene">
+                <div id="wishLantern" class="wish-lantern">🏮</div>
+            </div>
+
+            <button class="gold-btn" id="releaseWish">Release My Wish ✨</button>
+
+            <p id="wishResponse" class="response"></p>
+
+            <button class="gold-btn hidden" id="wishNext">
+                Continue ❤️
+            </button>
+        </div>
+    </section>
+
+    <!-- 6. SCRATCH CARD -->
+    <section class="screen" id="scratchPage">
+        <div class="section-content">
+            <p class="eyebrow">A SECRET IS WAITING</p>
+            <h2>Scratch To <span>Reveal</span> 🎁</h2>
+
+            <p class="description">
+                Scratch the golden cover with your finger or mouse.
+            </p>
+
+            <div class="scratch-wrap">
+                <div class="scratch-message">
+                    <div class="scratch-heart">❤️</div>
+                    <h3>You are someone's favourite notification.</h3>
+                    <p>Never forget how special you are!</p>
+                </div>
+                <canvas id="scratchCanvas"></canvas>
+            </div>
+
+            <p id="scratchStatus" class="instruction">
+                Scratch at least 45% to unlock the message.
+            </p>
+
+            <button class="gold-btn hidden" id="scratchNext">
+                Open My Gift ❤️
+            </button>
+        </div>
+    </section>
+
+    <!-- 7. MYSTERY GIFT -->
+    <section class="screen" id="giftPage">
+        <div class="section-content">
+            <p class="eyebrow">SOMETHING SPECIAL FOR YOU</p>
+            <h2>A Mystery <span>Gift</span> 🎀</h2>
+
+            <p class="description">
+                There's a surprise inside. Tap the box to open it!
+            </p>
+
+            <button id="giftBox" class="gift-box" aria-label="Open mystery gift">
+                <span class="gift-bow">🎀</span>
+                <span class="gift-lid"></span>
+                <span class="gift-body"></span>
+                <span class="gift-ribbon"></span>
+                <span class="gift-label">TAP TO OPEN</span>
+            </button>
+
+            <div id="giftResult" class="result-card hidden">
+                <div class="result-emoji">💖</div>
+                <h3>The best gift is a beautiful smile.</h3>
+                <p>And I hope this little surprise gave you one.</p>
+            </div>
+
+            <button class="gold-btn hidden" id="giftNext">
+                Read My Letter 💌
+            </button>
+        </div>
+    </section>
+
+    <!-- 8. SECRET LOVE LETTER -->
+    <section class="screen" id="letterPage">
+        <div class="section-content">
+            <p class="eyebrow">SOMETHING FROM THE HEART</p>
+            <h2>A Secret <span>Letter</span> 💌</h2>
+
+            <p class="description">
+                Tap the golden envelope to open your letter.
+            </p>
+
+            <button id="envelope" class="envelope">
+                <span class="envelope-flap"></span>
+                <span class="envelope-heart">❤️</span>
+                <small>OPEN MY LETTER</small>
+            </button>
+
+            <div id="letterResult" class="love-letter hidden">
+                <p class="letter-date">A LITTLE MESSAGE FOR YOU</p>
+                <h2>Dear <span id="letterName">Cutie</span>,</h2>
+
+                <p>
+                    Some people make ordinary moments feel extraordinary.
+                    Some smiles can make even the darkest days brighter.
+                </p>
+
+                <p>
+                    This Diwali, I wish you endless happiness, beautiful
+                    memories and a thousand reasons to smile.
+                </p>
+
+                <p>
+                    May your life always shine brighter than a thousand diyas.
+                    And may you never run out of reasons to be happy.
+                </p>
+
+                <h3>Happy Diwali, Cutie! ❤️</h3>
+                <p class="signature">With lots of love ✨</p>
+            </div>
+
+            <button class="gold-btn hidden" id="letterNext">
+                See The Grand Finale 🎆
+            </button>
+        </div>
+    </section>
+
+    <!-- 9. GRAND FINALE -->
+    <section class="screen" id="finalPage">
+        <div id="fireworks" class="fireworks"></div>
+
+        <div class="section-content final-content">
+            <p class="eyebrow">A LITTLE MESSAGE FROM MY HEART</p>
+
+            <div class="big-diya">🪔</div>
+
+            <h1>You Light Up<br><span>My Diwali!</span></h1>
+
+            <div class="final-message">
+                <p>
+                    This Diwali, I don't just wish for beautiful lights
+                    and fireworks.
+                </p>
+                <p>
+                    I wish for endless smiles, beautiful memories,
+                    laughter and moments that make every day special.
+                </p>
+                <p>
+                    May your life always shine as brightly as these diyas.
+                </p>
+
+                <h3>Happy Diwali, <span id="finalPartner">Cutie</span>! ❤️</h3>
+            </div>
+
+            <p class="final-caption">
+                You are the brightest light in this celebration.
+            </p>
+
+            <div class="final-actions">
+                <button class="gold-btn" id="downloadCard">
+                    Save Memory Card 📸
+                </button>
+
+                <button class="gold-btn" id="shareCard">
+                    Share My Diwali ❤️
+                </button>
+
+                <button class="gold-btn" id="replayBtn">
+                    Experience Again ↻
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
